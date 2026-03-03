@@ -98,13 +98,11 @@
       position: relative;
     }
 
-    .brand img {
+    .brand video {
       width: 100%;
       max-width: 400px;
       height: auto;
-      /* The requested motion effect to highlight 'at home' delivery */
-      animation: float-delivery 4s ease-in-out infinite, pulse-glow 3s infinite;
-      transform-origin: center bottom;
+      border-radius: var(--radius-sm);
     }
     
     /* === HERO === */
@@ -491,7 +489,7 @@
       .hero-grid { grid-template-columns: 1fr; gap: 40px; }
       .hero-intro { text-align: center; }
       .brand { display: flex; justify-content: center; }
-      .brand img { max-width: 300px; }
+      .brand video { max-width: 300px; }
       .btn-row { justify-content: center; }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .sabias-grid { grid-template-columns: 1fr; }
@@ -513,7 +511,7 @@
       <div class="wrap hero-grid">
         <div class="hero-intro">
           <div class="brand">
-            <img src="logo2-ibs.png.png" alt="IBS Taller de Bicicletas">
+            <video src="ibstaller.mp4.mp4" autoplay muted loop playsinline></video>
           </div>
           <h1>Tu Taller de Bicis, donde tu estes</h1>
           <p class="hero-slogan">Menos tiempo en el taller, mas tiempo en la ruta.</p>
