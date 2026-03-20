@@ -14,39 +14,39 @@
       --ink: #f1f5f9;
       --ink-strong: #ffffff;
       --ink-muted: #94a3b8;
-      
+
       --surface: #1e293b;
       --surface-elevated: #334155;
-      
+
       --bg-primary: #0f172a;
       --bg-section: #0b1120;
-      
+
       /* Impact Colors: Neon Orange & Electric Blue */
       --accent: #ff5400; /* Vivid Orange */
       --accent-light: #ff8533;
       --accent-dark: #cc4300;
       --accent-glow: rgba(255, 84, 0, 0.3);
-      
+
       --accent-secondary: #00f2ff; /* Cyber Blue */
-      
+
       --accent-hot: #ef4444;
       --green: #10b981;
       --gold: #fbbf24;
-      
+
       --border: rgba(255, 255, 255, 0.1);
       --border-accent: rgba(255, 84, 0, 0.3);
-      
+
       /* Shadows */
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
       --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
       --shadow-lg: 0 12px 32px rgba(0,0,0,0.5);
       --shadow-xl: 0 24px 60px rgba(0,0,0,0.6);
-      
+
       --radius-xs: 8px;
       --radius-sm: 16px;
       --radius-md: 24px;
       --radius-lg: 32px;
-      
+
       --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
@@ -77,7 +77,7 @@
       0% { transform: translateX(-50px) skewX(-10deg); opacity: 0; }
       100% { transform: translateX(0) skewX(0); opacity: 1; }
     }
-    
+
     @keyframes float-delivery {
       0% { transform: translateY(0) rotate(0deg); }
       25% { transform: translateY(-4px) rotate(1deg); }
@@ -85,7 +85,7 @@
       75% { transform: translateY(-2px) rotate(-0.5deg); }
       100% { transform: translateY(0) rotate(0deg); }
     }
-    
+
     @keyframes pulse-glow {
       0%, 100% { filter: drop-shadow(0 0 15px rgba(255, 84, 0, 0.2)); }
       50% { filter: drop-shadow(0 0 25px rgba(255, 84, 0, 0.5)); }
@@ -104,7 +104,48 @@
       height: auto;
       border-radius: var(--radius-sm);
     }
-    
+
+    /* === LANGUAGE BAR === */
+    .lang-bar {
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      z-index: 1001;
+      display: flex;
+      gap: 4px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 5px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .lang-btn {
+      background: transparent;
+      color: var(--ink-muted);
+      border: none;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: inherit;
+      letter-spacing: 0.05em;
+    }
+
+    .lang-btn:hover {
+      color: var(--ink-strong);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: white;
+    }
+
     /* === HERO === */
     .hero {
       position: relative;
@@ -112,7 +153,7 @@
       overflow: hidden;
       padding: 80px 20px 100px;
     }
-    
+
     .hero::before {
       content: "";
       position: absolute;
@@ -124,7 +165,7 @@
       filter: blur(60px);
       pointer-events: none;
     }
-    
+
     .hero::after {
       content: "";
       position: absolute;
@@ -138,9 +179,9 @@
 
     .wrap { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
     .hero-grid { display: grid; gap: 60px; grid-template-columns: 1fr 1fr; align-items: center; }
-    
+
     .hero-intro { text-align: left; }
-    
+
     .hero h1 {
       font-size: clamp(2.5rem, 5vw, 4rem);
       margin-bottom: 20px;
@@ -149,7 +190,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    
+
     .hero-slogan {
       font-size: 1.25rem;
       color: var(--accent);
@@ -177,7 +218,7 @@
       margin-bottom: 32px;
       backdrop-filter: blur(4px);
     }
-    
+
     .value-banner strong { color: var(--accent); font-size: 0.95rem; }
     .value-banner span { color: var(--ink-muted); font-size: 0.9rem; }
 
@@ -219,7 +260,7 @@
       color: var(--accent);
       background: rgba(255,255,255,0.03);
     }
-    
+
     .btn-icon svg { width: 18px; height: 18px; fill: currentColor; display: block; }
 
     .phone-logo {
@@ -246,7 +287,7 @@
       width: 100%; height: auto; border-radius: var(--radius-md); margin-bottom: 24px;
       opacity: 0.9; box-shadow: var(--shadow-md);
     }
-    
+
     .hero-form h2 { font-size: 1.5rem; margin-bottom: 8px; color: var(--ink-strong); }
     .hero-form p { color: var(--ink-muted); margin-bottom: 24px; font-size: 0.95rem; }
 
@@ -298,7 +339,7 @@
 
     /* === SERVICES === */
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-    
+
     .service-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -307,20 +348,20 @@
       transition: var(--transition);
       position: relative; overflow: hidden;
     }
-    
+
     .service-card::before {
       content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
       background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
       opacity: 0; transition: opacity var(--transition);
     }
-    
+
     .service-card:hover {
       transform: translateY(-8px);
       border-color: var(--border-accent);
       box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
     .service-card:hover::before { opacity: 1; }
-    
+
     .service-icon {
       font-size: 2rem; margin-bottom: 24px;
       width: 60px; height: 60px;
@@ -371,7 +412,7 @@
       content: ""; position: absolute; top: -100px; right: -100px; width: 600px; height: 600px;
       background: radial-gradient(circle, rgba(255, 84, 0, 0.1) 0%, transparent 70%); pointer-events: none;
     }
-    
+
     .sabias-badge {
       display: inline-block; padding: 8px 24px;
       background: linear-gradient(135deg, var(--accent) 0%, #ff2e63 100%);
@@ -403,7 +444,7 @@
     }
     .sabias-card h3 { color: white; margin-bottom: 10px; font-size: 1.1rem; }
     .sabias-card p { color: rgba(255,255,255,0.6); font-size: 0.95rem; }
-    
+
     .sabias-protip {
       margin-top: 40px; background: rgba(239, 68, 68, 0.1);
       border: 1px solid rgba(239, 68, 68, 0.3);
@@ -416,7 +457,7 @@
     /* === RESERVA === */
     .reserva-section { background: linear-gradient(180deg, var(--bg-section) 0%, #1e293b 100%); text-align: center; }
     .reserva-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-    
+
     .btn-cta { padding: 18px 40px; font-size: 1.1rem; font-weight: 700; border-radius: var(--radius-sm); transition: var(--transition); display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
     .btn-cta-primary {
       background: var(--accent); color: white;
@@ -446,7 +487,7 @@
     .agenda-card h2 { font-size: 1.8rem; margin-bottom: 12px; }
     .agenda-card > p { color: var(--ink-muted); margin-bottom: 32px; }
     .agenda-buttons { display: grid; gap: 16px; }
-    
+
     .agenda-btn {
       display: flex; align-items: center; justify-content: center; gap: 12px;
       padding: 16px; border-radius: var(--radius-xs);
@@ -494,12 +535,13 @@
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .sabias-grid { grid-template-columns: 1fr; }
     }
-    
+
     @media (max-width: 600px) {
       .hero h1 { font-size: 2rem; }
       .services-grid { grid-template-columns: 1fr; }
       .reserva-buttons { flex-direction: column; }
       .btn-cta { width: 100%; justify-content: center; }
+      .lang-bar { top: 12px; left: 12px; }
     }
 
     /* === HAMBURGER MENU === */
@@ -582,15 +624,22 @@
 <body>
   <div class="page">
 
+    <!-- LANGUAGE SELECTOR -->
+    <div class="lang-bar">
+      <button class="lang-btn active" onclick="setLanguage('es')" data-lang="es">ES</button>
+      <button class="lang-btn" onclick="setLanguage('en')" data-lang="en">EN</button>
+      <button class="lang-btn" onclick="setLanguage('fr')" data-lang="fr">FR</button>
+    </div>
+
     <!-- MENU -->
     <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
     <div class="menu-overlay" onclick="toggleMenu()"></div>
     <nav id="menu">
-      <a href="#inicio" onclick="toggleMenu()">Inicio</a>
-      <a href="#servicios" onclick="toggleMenu()">Servicios</a>
-      <a href="#como" onclick="toggleMenu()">Cómo funciona</a>
-      <a href="#contacto" onclick="toggleMenu()">Contacto</a>
-      <a href="tel:+34612493058">📞 Llamar</a>
+      <a href="#inicio" onclick="toggleMenu()" data-i18n="nav_inicio">Inicio</a>
+      <a href="#servicios" onclick="toggleMenu()" data-i18n="nav_servicios">Servicios</a>
+      <a href="#como" onclick="toggleMenu()" data-i18n="nav_como">Cómo funciona</a>
+      <a href="#contacto" onclick="toggleMenu()" data-i18n="nav_contacto">Contacto</a>
+      <a href="tel:+34612493058" data-i18n="nav_llamar">📞 Llamar</a>
     </nav>
 
     <!-- HERO -->
@@ -600,42 +649,42 @@
           <div class="brand">
             <video src="ibstaller.mp4.mp4" autoplay muted loop playsinline></video>
           </div>
-          <h1>Tu Taller de Bicis, donde tu estes</h1>
-          <p class="hero-slogan">Menos tiempo en el taller, mas tiempo en la ruta.</p>
-          <p>En IBS eliminamos la molestia de cargar con tu bicicleta hasta un local fisico. Nosotros vamos a tu casa, oficina o donde nos necesites.</p>
+          <h1 data-i18n="hero_title">Tu Taller de Bicis, donde tu estes</h1>
+          <p class="hero-slogan" data-i18n="hero_slogan">Menos tiempo en el taller, mas tiempo en la ruta.</p>
+          <p data-i18n="hero_desc">En IBS eliminamos la molestia de cargar con tu bicicleta hasta un local fisico. Nosotros vamos a tu casa, oficina o donde nos necesites.</p>
           <div class="value-banner">
-            <strong>Servicio a domicilio</strong>
-            <span>Tu bicicleta es tu pasion, tu ejercicio y tu libertad. Nosotros la cuidamos sin que te muevas.</span>
+            <strong data-i18n="hero_value_title">Servicio a domicilio</strong>
+            <span data-i18n="hero_value_desc">Tu bicicleta es tu pasion, tu ejercicio y tu libertad. Nosotros la cuidamos sin que te muevas.</span>
           </div>
           <div class="btn-row">
-            <a href="#servicios" class="btn btn-primary">Ver Servicios</a>
+            <a href="#servicios" class="btn btn-primary" data-i18n="hero_btn_services">Ver Servicios</a>
             <a href="https://wa.me/34612493058" target="_blank" rel="noopener" class="btn btn-outline"><span class="phone-logo" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M391 351c-17 17-47 36-69 36-48 0-94-26-133-65S124 237 124 189c0-22 19-52 36-69 8-8 22-8 30 0l39 39c8 8 8 22 0 30l-18 18c-6 6-7 16-3 23 10 21 28 44 47 63s42 37 63 47c7 4 17 3 23-3l18-18c8-8 22-8 30 0l39 39c8 8 8 22 0 30z"/></svg></span>612 493 058</a>
-            <a href="https://www.google.com/maps/search/?api=1&query=IBS+Taller+de+Bicicletas+Alicante+PAU+5" target="_blank" rel="noopener" class="btn btn-outline">Como llegar</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=IBS+Taller+de+Bicicletas+Alicante+PAU+5" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="hero_btn_directions">Como llegar</a>
           </div>
         </div>
         <div class="hero-form">
           <img class="contact-form-header" src="assets/taller-bicicletas-alicante-pau5.jpg" alt="Interior de nuestra bicicleteria en Alicante PAU 5">
-          <h2>Necesitas que vayamos a ti?</h2>
-          <p>Dejanos tus datos y coordinaremos el lugar y la hora que mejor te vengan.</p>
+          <h2 data-i18n="form_title">Necesitas que vayamos a ti?</h2>
+          <p data-i18n="form_desc">Dejanos tus datos y coordinaremos el lugar y la hora que mejor te vengan.</p>
           <form name="contacto-netlify" method="POST" data-netlify="true" action="/gracias.html">
             <input type="hidden" name="form-name" value="contacto-netlify" />
             <div class="form-group">
-              <label>Nombre completo</label>
-              <input type="text" name="nombre" placeholder="Ej. Juan Perez" required>
+              <label data-i18n="form_label_name">Nombre completo</label>
+              <input type="text" name="nombre" placeholder="Ej. Juan Perez" data-i18n-placeholder="form_ph_name" required>
             </div>
             <div class="form-group">
-              <label>Telefono</label>
+              <label data-i18n="form_label_phone">Telefono</label>
               <input type="tel" name="telefono" placeholder="+34 612..." required>
             </div>
             <div class="form-group">
-              <label>Correo electronico</label>
-              <input type="email" name="email" placeholder="correo@ejemplo.com" required>
+              <label data-i18n="form_label_email">Correo electronico</label>
+              <input type="email" name="email" placeholder="correo@ejemplo.com" data-i18n-placeholder="form_ph_email" required>
             </div>
             <div class="form-group">
-              <label>Tu comentario</label>
-              <textarea name="comentario" rows="4" placeholder="En que podemos ayudarte?" required></textarea>
+              <label data-i18n="form_label_comment">Tu comentario</label>
+              <textarea name="comentario" rows="4" placeholder="En que podemos ayudarte?" data-i18n-placeholder="form_ph_comment" required></textarea>
             </div>
-            <button type="submit" class="btn-submit">Enviar Mensaje</button>
+            <button type="submit" class="btn-submit" data-i18n="form_submit">Enviar Mensaje</button>
           </form>
         </div>
       </div>
@@ -666,40 +715,40 @@
     <section id="servicios" class="section bg-white">
       <div class="wrap">
         <div class="section-header">
-          <span class="section-label">Nuestros Servicios</span>
-          <h2>Soluciones para tu bicicleta</h2>
-          <p>Reparaciones rapidas y confiables para todo tipo de bicicletas urbanas, de ruta y montana.</p>
+          <span class="section-label" data-i18n="services_label">Nuestros Servicios</span>
+          <h2 data-i18n="services_title">Soluciones para tu bicicleta</h2>
+          <p data-i18n="services_desc">Reparaciones rapidas y confiables para todo tipo de bicicletas urbanas, de ruta y montana.</p>
         </div>
         <div class="services-grid">
           <div class="service-card">
             <div class="service-icon">🏠</div>
-            <h3>Servicio a Domicilio</h3>
-            <p>El taller va donde esta tu bicicleta para ahorrar traslados y tiempo, con la misma calidad de siempre.</p>
+            <h3 data-i18n="svc1_title">Servicio a Domicilio</h3>
+            <p data-i18n="svc1_desc">El taller va donde esta tu bicicleta para ahorrar traslados y tiempo, con la misma calidad de siempre.</p>
           </div>
           <div class="service-card">
             <div class="service-icon">🔧</div>
-            <h3>Puesta a Punto</h3>
-            <p>Revision completa, ajuste de frenos y cambios, engrase general y verificacion de seguridad.</p>
+            <h3 data-i18n="svc2_title">Puesta a Punto</h3>
+            <p data-i18n="svc2_desc">Revision completa, ajuste de frenos y cambios, engrase general y verificacion de seguridad.</p>
           </div>
           <div class="service-card">
             <div class="service-icon">🛞</div>
-            <h3>Reparacion de Pinchazos</h3>
-            <p>Cambio o reparacion de camara y revision de cubierta.</p>
+            <h3 data-i18n="svc3_title">Reparacion de Pinchazos</h3>
+            <p data-i18n="svc3_desc">Cambio o reparacion de camara y revision de cubierta.</p>
           </div>
           <div class="service-card">
             <div class="service-icon">⚙️</div>
-            <h3>Mantenimiento General</h3>
-            <p>Ajustes mecanicos y optimizacion del rendimiento de tu bicicleta.</p>
+            <h3 data-i18n="svc4_title">Mantenimiento General</h3>
+            <p data-i18n="svc4_desc">Ajustes mecanicos y optimizacion del rendimiento de tu bicicleta.</p>
           </div>
           <div class="service-card">
             <div class="service-icon">⚡</div>
-            <h3>Diagnostico de E-Bikes</h3>
-            <p>Especialistas en bicicletas electricas. Chequeo de sistema electrico, actualizacion de software y optimizacion de bateria.</p>
+            <h3 data-i18n="svc5_title">Diagnostico de E-Bikes</h3>
+            <p data-i18n="svc5_desc">Especialistas en bicicletas electricas. Chequeo de sistema electrico, actualizacion de software y optimizacion de bateria.</p>
           </div>
           <div class="service-card">
             <div class="service-icon">🚲</div>
-            <h3>Alquiler de bicicletas</h3>
-            <p>Bicicletas listas para rodar con opciones de alquiler pensadas para paseos urbanos y rutas en Alicante.</p>
+            <h3 data-i18n="svc6_title">Alquiler de bicicletas</h3>
+            <p data-i18n="svc6_desc">Bicicletas listas para rodar con opciones de alquiler pensadas para paseos urbanos y rutas en Alicante.</p>
           </div>
         </div>
       </div>
@@ -709,15 +758,15 @@
     <section class="section testimonial-section">
       <div class="wrap">
         <div class="section-header">
-          <span class="section-label">Testimonios</span>
-          <h2>Lo que dicen nuestros clientes</h2>
+          <span class="section-label" data-i18n="testimonials_label">Testimonios</span>
+          <h2 data-i18n="testimonials_title">Lo que dicen nuestros clientes</h2>
         </div>
         <div class="testimonial-card">
           <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>
+          <blockquote data-i18n="testimonial_quote">
             Increible servicio. Vinieron a mi oficina, ajustaron los cambios y para cuando sali de trabajar, la bici estaba como nueva. 100% recomendado!
           </blockquote>
-          <cite>-- Cliente satisfecho</cite>
+          <cite data-i18n="testimonial_cite">-- Cliente satisfecho</cite>
         </div>
       </div>
     </section>
@@ -726,13 +775,13 @@
     <section class="section opiniones-section bg-white">
       <div class="wrap">
         <div class="section-header">
-          <span class="section-label">Opiniones</span>
-          <h2>Opiniones verificadas</h2>
-          <p>Conoce lo que dicen quienes ya confiaron en nuestro servicio.</p>
+          <span class="section-label" data-i18n="reviews_label">Opiniones</span>
+          <h2 data-i18n="reviews_title">Opiniones verificadas</h2>
+          <p data-i18n="reviews_desc">Conoce lo que dicen quienes ya confiaron en nuestro servicio.</p>
         </div>
         <a href="https://www.google.com/search?q=IBS+Taller+de+Bicicletas+rese%C3%B1as" target="_blank" rel="noopener" class="btn-google">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 001 12c0 1.77.42 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-          Ver Opiniones en Google
+          <span data-i18n="reviews_btn">Ver Opiniones en Google</span>
         </a>
       </div>
     </section>
@@ -741,49 +790,49 @@
     <section class="section sabias-section">
       <div class="wrap">
         <div class="sabias-header">
-          <span class="sabias-badge">Sabias que...</span>
-          <h2>Checklist de Seguridad</h2>
-          <p>5 minutos que salvan rutas. Antes de pedalear por Alicante, asegurate de que tu bike este en perfectas condiciones con la prueba "ABC".</p>
+          <span class="sabias-badge" data-i18n="sabias_badge">Sabias que...</span>
+          <h2 data-i18n="sabias_title">Checklist de Seguridad</h2>
+          <p data-i18n="sabias_desc">5 minutos que salvan rutas. Antes de pedalear por Alicante, asegurate de que tu bike este en perfectas condiciones con la prueba "ABC".</p>
         </div>
         <div class="sabias-grid">
           <div class="sabias-card">
             <div class="sabias-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2 2"/></svg>
             </div>
-            <h3>A de Aire</h3>
-            <p>Comprueba la presion de tus neumaticos. Rodar con poca presion aumenta el riesgo de pinchazos y dana la llanta.</p>
+            <h3 data-i18n="sabias1_title">A de Aire</h3>
+            <p data-i18n="sabias1_desc">Comprueba la presion de tus neumaticos. Rodar con poca presion aumenta el riesgo de pinchazos y dana la llanta.</p>
           </div>
           <div class="sabias-card">
             <div class="sabias-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </div>
-            <h3>B de Brake (Frenos)</h3>
-            <p>Acciona ambas manetas. Deben frenar con firmeza antes de llegar al manillar. Si escuchas ruidos metalicos, es hora de una revision completa.</p>
+            <h3 data-i18n="sabias2_title">B de Brake (Frenos)</h3>
+            <p data-i18n="sabias2_desc">Acciona ambas manetas. Deben frenar con firmeza antes de llegar al manillar. Si escuchas ruidos metalicos, es hora de una revision completa.</p>
           </div>
           <div class="sabias-card">
             <div class="sabias-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
             </div>
-            <h3>C de Cadena</h3>
-            <p>Asegurate de que la transmision este limpia y lubricada. Una cadena seca puede romperse o causar un salto de cambios inesperado.</p>
+            <h3 data-i18n="sabias3_title">C de Cadena</h3>
+            <p data-i18n="sabias3_desc">Asegurate de que la transmision este limpia y lubricada. Una cadena seca puede romperse o causar un salto de cambios inesperado.</p>
           </div>
           <div class="sabias-card">
             <div class="sabias-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             </div>
-            <h3>Cierre Rapido</h3>
-            <p>Verifica que las ruedas y la tija del sillin esten bien bloqueadas.</p>
+            <h3 data-i18n="sabias4_title">Cierre Rapido</h3>
+            <p data-i18n="sabias4_desc">Verifica que las ruedas y la tija del sillin esten bien bloqueadas.</p>
           </div>
           <div class="sabias-card">
             <div class="sabias-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
             </div>
-            <h3>Casco y Luces</h3>
-            <p>En ciudad y carretera, ser visto es tan importante como ver. Revisa tus baterias antes de salir.</p>
+            <h3 data-i18n="sabias5_title">Casco y Luces</h3>
+            <p data-i18n="sabias5_desc">En ciudad y carretera, ser visto es tan importante como ver. Revisa tus baterias antes de salir.</p>
           </div>
         </div>
         <div class="sabias-protip">
-          <strong>Consejo Pro:</strong> Si notas cualquier vibracion extrana o ruido inusual durante esta revision, no te la juegues. Pide tu cita en nuestro taller del PAU 5 y sal a rodar con total tranquilidad.
+          <strong data-i18n="protip_label">Consejo Pro:</strong> <span data-i18n="protip_text">Si notas cualquier vibracion extrana o ruido inusual durante esta revision, no te la juegues. Pide tu cita en nuestro taller del PAU 5 y sal a rodar con total tranquilidad.</span>
         </div>
       </div>
     </section>
@@ -792,13 +841,13 @@
     <section id="contacto" class="section reserva-section">
       <div class="wrap">
         <div class="section-header">
-          <span class="section-label">Contacto</span>
-          <h2>Reserva tu Servicio</h2>
-          <p>Contactanos ahora y vuelve a rodar con seguridad. Respuesta rapida por telefono o WhatsApp.</p>
+          <span class="section-label" data-i18n="reserva_label">Contacto</span>
+          <h2 data-i18n="reserva_title">Reserva tu Servicio</h2>
+          <p data-i18n="reserva_desc">Contactanos ahora y vuelve a rodar con seguridad. Respuesta rapida por telefono o WhatsApp.</p>
         </div>
         <div class="reserva-buttons">
-          <a href="tel:+34612493058" class="btn btn-cta btn-cta-primary"><span class="phone-logo" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M391 351c-17 17-47 36-69 36-48 0-94-26-133-65S124 237 124 189c0-22 19-52 36-69 8-8 22-8 30 0l39 39c8 8 8 22 0 30l-18 18c-6 6-7 16-3 23 10 21 28 44 47 63s42 37 63 47c7 4 17 3 23-3l18-18c8-8 22-8 30 0l39 39c8 8 8 22 0 30z"/></svg></span>Llamar Ahora</a>
-          <a href="https://wa.me/34612493058" target="_blank" rel="noopener" class="btn btn-cta btn-cta-outline"><span class="phone-logo" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M391 351c-17 17-47 36-69 36-48 0-94-26-133-65S124 237 124 189c0-22 19-52 36-69 8-8 22-8 30 0l39 39c8 8 8 22 0 30l-18 18c-6 6-7 16-3 23 10 21 28 44 47 63s42 37 63 47c7 4 17 3 23-3l18-18c8-8 22-8 30 0l39 39c8 8 8 22 0 30z"/></svg></span>Escribir por WhatsApp</a>
+          <a href="tel:+34612493058" class="btn btn-cta btn-cta-primary"><span class="phone-logo" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M391 351c-17 17-47 36-69 36-48 0-94-26-133-65S124 237 124 189c0-22 19-52 36-69 8-8 22-8 30 0l39 39c8 8 8 22 0 30l-18 18c-6 6-7 16-3 23 10 21 28 44 47 63s42 37 63 47c7 4 17 3 23-3l18-18c8-8 22-8 30 0l39 39c8 8 8 22 0 30z"/></svg></span><span data-i18n="reserva_btn_call">Llamar Ahora</span></a>
+          <a href="https://wa.me/34612493058" target="_blank" rel="noopener" class="btn btn-cta btn-cta-outline"><span class="phone-logo" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M391 351c-17 17-47 36-69 36-48 0-94-26-133-65S124 237 124 189c0-22 19-52 36-69 8-8 22-8 30 0l39 39c8 8 8 22 0 30l-18 18c-6 6-7 16-3 23 10 21 28 44 47 63s42 37 63 47c7 4 17 3 23-3l18-18c8-8 22-8 30 0l39 39c8 8 8 22 0 30z"/></svg></span><span data-i18n="reserva_btn_whatsapp">Escribir por WhatsApp</span></a>
         </div>
       </div>
     </section>
@@ -807,13 +856,13 @@
     <section class="section bg-light">
       <div class="wrap">
         <div class="agenda-card">
-          <h2>Agenda rapida</h2>
-          <p>Reserva tu servicio y elige la opcion que necesites para abrir el chat directo en WhatsApp.</p>
+          <h2 data-i18n="agenda_title">Agenda rapida</h2>
+          <p data-i18n="agenda_desc">Reserva tu servicio y elige la opcion que necesites para abrir el chat directo en WhatsApp.</p>
           <div class="agenda-buttons">
-            <a href="https://wa.me/34612493058?text=Hola,%20quiero%20una%20Puesta%20a%20Punto%20para%20mi%20bicicleta." target="_blank" rel="noopener" class="agenda-btn agenda-btn-fill">🔧 Puesta a Punto</a>
-            <a href="https://wa.me/34612493058?text=Hola,%20necesito%20reparar%20un%20pinchazo." target="_blank" rel="noopener" class="agenda-btn agenda-btn-fill">🛞 Reparacion de Pinchazo</a>
-            <a href="https://wa.me/34612493058?text=Hola,%20quiero%20un%20ajuste%20de%20cambios." target="_blank" rel="noopener" class="agenda-btn agenda-btn-ghost">⚙️ Ajuste de Cambios</a>
-            <a href="https://wa.me/34612493058?text=Hola,%20necesito%20ajustar%20los%20frenos." target="_blank" rel="noopener" class="agenda-btn agenda-btn-ghost">🛑 Ajuste de Frenos</a>
+            <a href="https://wa.me/34612493058?text=Hola,%20quiero%20una%20Puesta%20a%20Punto%20para%20mi%20bicicleta." target="_blank" rel="noopener" class="agenda-btn agenda-btn-fill" data-i18n="agenda_btn1">🔧 Puesta a Punto</a>
+            <a href="https://wa.me/34612493058?text=Hola,%20necesito%20reparar%20un%20pinchazo." target="_blank" rel="noopener" class="agenda-btn agenda-btn-fill" data-i18n="agenda_btn2">🛞 Reparacion de Pinchazo</a>
+            <a href="https://wa.me/34612493058?text=Hola,%20quiero%20un%20ajuste%20de%20cambios." target="_blank" rel="noopener" class="agenda-btn agenda-btn-ghost" data-i18n="agenda_btn3">⚙️ Ajuste de Cambios</a>
+            <a href="https://wa.me/34612493058?text=Hola,%20necesito%20ajustar%20los%20frenos." target="_blank" rel="noopener" class="agenda-btn agenda-btn-ghost" data-i18n="agenda_btn4">🛑 Ajuste de Frenos</a>
           </div>
         </div>
       </div>
@@ -822,13 +871,13 @@
     <!-- FINAL -->
     <section class="section final-section">
       <div class="wrap">
-        <h2>Tu bici, lista para rodar</h2>
-        <p>Puesta a punto profesional con herramientas especializadas y resultados que se notan desde el primer recorrido.</p>
+        <h2 data-i18n="final_title">Tu bici, lista para rodar</h2>
+        <p data-i18n="final_desc">Puesta a punto profesional con herramientas especializadas y resultados que se notan desde el primer recorrido.</p>
       </div>
     </section>
 
     <footer>
-      <p>&copy; 2026 IBS Taller de Bicicletas</p>
+      <p data-i18n="footer_text">&copy; 2026 IBS Taller de Bicicletas</p>
     </footer>
   </div>
   <script>
@@ -840,6 +889,288 @@
         menu.style.display = "flex";
       }
     }
+
+    var translations = {
+      es: {
+        nav_inicio: "Inicio",
+        nav_servicios: "Servicios",
+        nav_como: "Cómo funciona",
+        nav_contacto: "Contacto",
+        nav_llamar: "📞 Llamar",
+        hero_title: "Tu Taller de Bicis, donde tu estes",
+        hero_slogan: "Menos tiempo en el taller, mas tiempo en la ruta.",
+        hero_desc: "En IBS eliminamos la molestia de cargar con tu bicicleta hasta un local fisico. Nosotros vamos a tu casa, oficina o donde nos necesites.",
+        hero_value_title: "Servicio a domicilio",
+        hero_value_desc: "Tu bicicleta es tu pasion, tu ejercicio y tu libertad. Nosotros la cuidamos sin que te muevas.",
+        hero_btn_services: "Ver Servicios",
+        hero_btn_directions: "Como llegar",
+        form_title: "Necesitas que vayamos a ti?",
+        form_desc: "Dejanos tus datos y coordinaremos el lugar y la hora que mejor te vengan.",
+        form_label_name: "Nombre completo",
+        form_ph_name: "Ej. Juan Perez",
+        form_label_phone: "Telefono",
+        form_label_email: "Correo electronico",
+        form_ph_email: "correo@ejemplo.com",
+        form_label_comment: "Tu comentario",
+        form_ph_comment: "En que podemos ayudarte?",
+        form_submit: "Enviar Mensaje",
+        services_label: "Nuestros Servicios",
+        services_title: "Soluciones para tu bicicleta",
+        services_desc: "Reparaciones rapidas y confiables para todo tipo de bicicletas urbanas, de ruta y montana.",
+        svc1_title: "Servicio a Domicilio",
+        svc1_desc: "El taller va donde esta tu bicicleta para ahorrar traslados y tiempo, con la misma calidad de siempre.",
+        svc2_title: "Puesta a Punto",
+        svc2_desc: "Revision completa, ajuste de frenos y cambios, engrase general y verificacion de seguridad.",
+        svc3_title: "Reparacion de Pinchazos",
+        svc3_desc: "Cambio o reparacion de camara y revision de cubierta.",
+        svc4_title: "Mantenimiento General",
+        svc4_desc: "Ajustes mecanicos y optimizacion del rendimiento de tu bicicleta.",
+        svc5_title: "Diagnostico de E-Bikes",
+        svc5_desc: "Especialistas en bicicletas electricas. Chequeo de sistema electrico, actualizacion de software y optimizacion de bateria.",
+        svc6_title: "Alquiler de bicicletas",
+        svc6_desc: "Bicicletas listas para rodar con opciones de alquiler pensadas para paseos urbanos y rutas en Alicante.",
+        testimonials_label: "Testimonios",
+        testimonials_title: "Lo que dicen nuestros clientes",
+        testimonial_quote: "Increible servicio. Vinieron a mi oficina, ajustaron los cambios y para cuando sali de trabajar, la bici estaba como nueva. 100% recomendado!",
+        testimonial_cite: "-- Cliente satisfecho",
+        reviews_label: "Opiniones",
+        reviews_title: "Opiniones verificadas",
+        reviews_desc: "Conoce lo que dicen quienes ya confiaron en nuestro servicio.",
+        reviews_btn: "Ver Opiniones en Google",
+        sabias_badge: "Sabias que...",
+        sabias_title: "Checklist de Seguridad",
+        sabias_desc: "5 minutos que salvan rutas. Antes de pedalear por Alicante, asegurate de que tu bike este en perfectas condiciones con la prueba \"ABC\".",
+        sabias1_title: "A de Aire",
+        sabias1_desc: "Comprueba la presion de tus neumaticos. Rodar con poca presion aumenta el riesgo de pinchazos y dana la llanta.",
+        sabias2_title: "B de Brake (Frenos)",
+        sabias2_desc: "Acciona ambas manetas. Deben frenar con firmeza antes de llegar al manillar. Si escuchas ruidos metalicos, es hora de una revision completa.",
+        sabias3_title: "C de Cadena",
+        sabias3_desc: "Asegurate de que la transmision este limpia y lubricada. Una cadena seca puede romperse o causar un salto de cambios inesperado.",
+        sabias4_title: "Cierre Rapido",
+        sabias4_desc: "Verifica que las ruedas y la tija del sillin esten bien bloqueadas.",
+        sabias5_title: "Casco y Luces",
+        sabias5_desc: "En ciudad y carretera, ser visto es tan importante como ver. Revisa tus baterias antes de salir.",
+        protip_label: "Consejo Pro:",
+        protip_text: "Si notas cualquier vibracion extrana o ruido inusual durante esta revision, no te la juegues. Pide tu cita en nuestro taller del PAU 5 y sal a rodar con total tranquilidad.",
+        reserva_label: "Contacto",
+        reserva_title: "Reserva tu Servicio",
+        reserva_desc: "Contactanos ahora y vuelve a rodar con seguridad. Respuesta rapida por telefono o WhatsApp.",
+        reserva_btn_call: "Llamar Ahora",
+        reserva_btn_whatsapp: "Escribir por WhatsApp",
+        agenda_title: "Agenda rapida",
+        agenda_desc: "Reserva tu servicio y elige la opcion que necesites para abrir el chat directo en WhatsApp.",
+        agenda_btn1: "🔧 Puesta a Punto",
+        agenda_btn2: "🛞 Reparacion de Pinchazo",
+        agenda_btn3: "⚙️ Ajuste de Cambios",
+        agenda_btn4: "🛑 Ajuste de Frenos",
+        final_title: "Tu bici, lista para rodar",
+        final_desc: "Puesta a punto profesional con herramientas especializadas y resultados que se notan desde el primer recorrido.",
+        footer_text: "&copy; 2026 IBS Taller de Bicicletas",
+        page_title: "IBS Taller de Bicicletas a Domicilio | Tu Taller de Bicis, donde tu estes"
+      },
+      en: {
+        nav_inicio: "Home",
+        nav_servicios: "Services",
+        nav_como: "How It Works",
+        nav_contacto: "Contact",
+        nav_llamar: "📞 Call",
+        hero_title: "Your Bike Shop, wherever you are",
+        hero_slogan: "Less time in the shop, more time on the road.",
+        hero_desc: "At IBS we eliminate the hassle of hauling your bike to a physical shop. We come to your home, office, or wherever you need us.",
+        hero_value_title: "Home service",
+        hero_value_desc: "Your bike is your passion, your exercise and your freedom. We take care of it without you having to move.",
+        hero_btn_services: "View Services",
+        hero_btn_directions: "Get Directions",
+        form_title: "Need us to come to you?",
+        form_desc: "Leave us your details and we will arrange the place and time that suits you best.",
+        form_label_name: "Full name",
+        form_ph_name: "E.g. John Smith",
+        form_label_phone: "Phone",
+        form_label_email: "Email address",
+        form_ph_email: "email@example.com",
+        form_label_comment: "Your message",
+        form_ph_comment: "How can we help you?",
+        form_submit: "Send Message",
+        services_label: "Our Services",
+        services_title: "Solutions for your bicycle",
+        services_desc: "Fast and reliable repairs for all types of urban, road, and mountain bikes.",
+        svc1_title: "Home Service",
+        svc1_desc: "The workshop goes where your bike is, saving you travel time with the same quality as always.",
+        svc2_title: "Tune-Up",
+        svc2_desc: "Complete check-up, brake and gear adjustment, general lubrication and safety inspection.",
+        svc3_title: "Flat Tire Repair",
+        svc3_desc: "Inner tube replacement or repair and tire inspection.",
+        svc4_title: "General Maintenance",
+        svc4_desc: "Mechanical adjustments and performance optimization for your bicycle.",
+        svc5_title: "E-Bike Diagnostics",
+        svc5_desc: "E-bike specialists. Electrical system check, software update and battery optimization.",
+        svc6_title: "Bike Rental",
+        svc6_desc: "Bikes ready to ride with rental options designed for urban rides and routes in Alicante.",
+        testimonials_label: "Testimonials",
+        testimonials_title: "What our clients say",
+        testimonial_quote: "Incredible service. They came to my office, adjusted the gears, and by the time I left work, the bike was like new. 100% recommended!",
+        testimonial_cite: "-- Satisfied customer",
+        reviews_label: "Reviews",
+        reviews_title: "Verified Reviews",
+        reviews_desc: "See what those who already trusted our service have to say.",
+        reviews_btn: "View Reviews on Google",
+        sabias_badge: "Did you know...",
+        sabias_title: "Safety Checklist",
+        sabias_desc: "5 minutes that save rides. Before cycling in Alicante, make sure your bike is in perfect condition with the \"ABC\" test.",
+        sabias1_title: "A for Air",
+        sabias1_desc: "Check your tire pressure. Riding with low pressure increases the risk of flats and damages the rim.",
+        sabias2_title: "B for Brakes",
+        sabias2_desc: "Squeeze both brake levers. They should brake firmly before reaching the handlebar. If you hear metallic sounds, it's time for a full check-up.",
+        sabias3_title: "C for Chain",
+        sabias3_desc: "Make sure the drivetrain is clean and lubricated. A dry chain can break or cause an unexpected gear skip.",
+        sabias4_title: "Quick Release",
+        sabias4_desc: "Check that the wheels and seat post are properly locked.",
+        sabias5_title: "Helmet & Lights",
+        sabias5_desc: "In the city and on the road, being seen is as important as seeing. Check your batteries before heading out.",
+        protip_label: "Pro Tip:",
+        protip_text: "If you notice any strange vibration or unusual noise during this check, don't risk it. Book an appointment at our PAU 5 workshop and ride with total peace of mind.",
+        reserva_label: "Contact",
+        reserva_title: "Book Your Service",
+        reserva_desc: "Contact us now and get back on the road safely. Fast response by phone or WhatsApp.",
+        reserva_btn_call: "Call Now",
+        reserva_btn_whatsapp: "Message on WhatsApp",
+        agenda_title: "Quick Schedule",
+        agenda_desc: "Book your service and choose the option you need to open a direct WhatsApp chat.",
+        agenda_btn1: "🔧 Tune-Up",
+        agenda_btn2: "🛞 Flat Tire Repair",
+        agenda_btn3: "⚙️ Gear Adjustment",
+        agenda_btn4: "🛑 Brake Adjustment",
+        final_title: "Your bike, ready to ride",
+        final_desc: "Professional tune-up with specialized tools and results you'll notice from the very first ride.",
+        footer_text: "&copy; 2026 IBS Bicycle Workshop",
+        page_title: "IBS Mobile Bicycle Workshop | Your Bike Shop, wherever you are"
+      },
+      fr: {
+        nav_inicio: "Accueil",
+        nav_servicios: "Services",
+        nav_como: "Comment ça marche",
+        nav_contacto: "Contact",
+        nav_llamar: "📞 Appeler",
+        hero_title: "Votre Atelier Vélo, où que vous soyez",
+        hero_slogan: "Moins de temps à l'atelier, plus de temps sur la route.",
+        hero_desc: "Chez IBS, nous éliminons la contrainte de transporter votre vélo jusqu'à un atelier physique. Nous venons chez vous, au bureau ou où vous le souhaitez.",
+        hero_value_title: "Service à domicile",
+        hero_value_desc: "Votre vélo est votre passion, votre exercice et votre liberté. Nous en prenons soin sans que vous ayez à bouger.",
+        hero_btn_services: "Voir les Services",
+        hero_btn_directions: "Comment venir",
+        form_title: "Besoin que nous venions à vous ?",
+        form_desc: "Laissez-nous vos coordonnées et nous organiserons le lieu et l'heure qui vous conviennent le mieux.",
+        form_label_name: "Nom complet",
+        form_ph_name: "Ex. Jean Dupont",
+        form_label_phone: "Téléphone",
+        form_label_email: "Adresse e-mail",
+        form_ph_email: "email@exemple.com",
+        form_label_comment: "Votre message",
+        form_ph_comment: "Comment pouvons-nous vous aider ?",
+        form_submit: "Envoyer le Message",
+        services_label: "Nos Services",
+        services_title: "Solutions pour votre vélo",
+        services_desc: "Réparations rapides et fiables pour tous types de vélos urbains, de route et de montagne.",
+        svc1_title: "Service à Domicile",
+        svc1_desc: "L'atelier se déplace là où se trouve votre vélo, pour vous faire gagner du temps avec la même qualité.",
+        svc2_title: "Mise au Point",
+        svc2_desc: "Révision complète, réglage des freins et vitesses, graissage général et vérification de sécurité.",
+        svc3_title: "Réparation de Crevaisons",
+        svc3_desc: "Remplacement ou réparation de chambre à air et vérification du pneu.",
+        svc4_title: "Entretien Général",
+        svc4_desc: "Réglages mécaniques et optimisation des performances de votre vélo.",
+        svc5_title: "Diagnostic E-Bikes",
+        svc5_desc: "Spécialistes en vélos électriques. Vérification du système électrique, mise à jour logicielle et optimisation de la batterie.",
+        svc6_title: "Location de Vélos",
+        svc6_desc: "Vélos prêts à rouler avec des options de location pensées pour les balades urbaines et les itinéraires à Alicante.",
+        testimonials_label: "Témoignages",
+        testimonials_title: "Ce que disent nos clients",
+        testimonial_quote: "Service incroyable. Ils sont venus à mon bureau, ont réglé les vitesses et quand j'ai quitté le travail, le vélo était comme neuf. 100% recommandé !",
+        testimonial_cite: "-- Client satisfait",
+        reviews_label: "Avis",
+        reviews_title: "Avis vérifiés",
+        reviews_desc: "Découvrez ce que disent ceux qui ont déjà fait confiance à notre service.",
+        reviews_btn: "Voir les Avis sur Google",
+        sabias_badge: "Le saviez-vous...",
+        sabias_title: "Checklist de Sécurité",
+        sabias_desc: "5 minutes qui sauvent vos sorties. Avant de pédaler à Alicante, assurez-vous que votre vélo est en parfait état avec le test \"ABC\".",
+        sabias1_title: "A pour Air",
+        sabias1_desc: "Vérifiez la pression de vos pneus. Rouler avec une pression basse augmente le risque de crevaison et endommage la jante.",
+        sabias2_title: "B pour Brakes (Freins)",
+        sabias2_desc: "Actionnez les deux leviers de frein. Ils doivent freiner fermement avant d'atteindre le guidon. Si vous entendez des bruits métalliques, il est temps d'une révision complète.",
+        sabias3_title: "C pour Chaîne",
+        sabias3_desc: "Assurez-vous que la transmission est propre et lubrifiée. Une chaîne sèche peut casser ou provoquer un saut de vitesse inattendu.",
+        sabias4_title: "Serrage Rapide",
+        sabias4_desc: "Vérifiez que les roues et la tige de selle sont bien bloquées.",
+        sabias5_title: "Casque et Éclairage",
+        sabias5_desc: "En ville et sur route, être vu est aussi important que voir. Vérifiez vos batteries avant de partir.",
+        protip_label: "Conseil Pro :",
+        protip_text: "Si vous remarquez une vibration étrange ou un bruit inhabituel lors de cette vérification, ne prenez pas de risque. Prenez rendez-vous dans notre atelier du PAU 5 et roulez en toute tranquillité.",
+        reserva_label: "Contact",
+        reserva_title: "Réservez Votre Service",
+        reserva_desc: "Contactez-nous maintenant et reprenez la route en toute sécurité. Réponse rapide par téléphone ou WhatsApp.",
+        reserva_btn_call: "Appeler Maintenant",
+        reserva_btn_whatsapp: "Écrire sur WhatsApp",
+        agenda_title: "Agenda Rapide",
+        agenda_desc: "Réservez votre service et choisissez l'option dont vous avez besoin pour ouvrir un chat direct sur WhatsApp.",
+        agenda_btn1: "🔧 Mise au Point",
+        agenda_btn2: "🛞 Réparation de Crevaison",
+        agenda_btn3: "⚙️ Réglage des Vitesses",
+        agenda_btn4: "🛑 Réglage des Freins",
+        final_title: "Votre vélo, prêt à rouler",
+        final_desc: "Mise au point professionnelle avec des outils spécialisés et des résultats visibles dès la première sortie.",
+        footer_text: "&copy; 2026 IBS Atelier de Vélos",
+        page_title: "IBS Atelier de Vélos à Domicile | Votre Atelier Vélo, où que vous soyez"
+      }
+    };
+
+    function setLanguage(lang) {
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+
+      // Update html lang attribute
+      document.documentElement.lang = lang;
+
+      // Update page title
+      if (translations[lang] && translations[lang].page_title) {
+        document.title = translations[lang].page_title;
+      }
+
+      // Update text content
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          if (key === 'footer_text') {
+            el.innerHTML = translations[lang][key];
+          } else {
+            el.textContent = translations[lang][key];
+          }
+        }
+      });
+
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+          el.placeholder = translations[lang][key];
+        }
+      });
+
+      // Save preference
+      try { localStorage.setItem('ibs-lang', lang); } catch(e) {}
+    }
+
+    // Load saved language on page load
+    (function() {
+      try {
+        var saved = localStorage.getItem('ibs-lang');
+        if (saved && translations[saved]) {
+          setLanguage(saved);
+        }
+      } catch(e) {}
+    })();
   </script>
 </body>
 </html>
